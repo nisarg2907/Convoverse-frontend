@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+ import { createSlice } from "@reduxjs/toolkit";
 import { dispatch } from "../store";
 
 const initialState = {
@@ -12,7 +12,7 @@ const slice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    toggesidebar(state, action) {
+    toggesidebar(state) {
       state.sidebar.open = !state.sidebar.open;
     },
     updatesidebarType(state, action) {
