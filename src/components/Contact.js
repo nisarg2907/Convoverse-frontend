@@ -12,7 +12,7 @@ import {
 } from "phosphor-react";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleSidebar } from "../redux/slices/app";
+import { UpdateSidebarType, toggleSidebar } from "../redux/slices/app";
 import { faker } from "@faker-js/faker";
 import AntSwitch from "./AntSwitch";
 
@@ -112,7 +112,15 @@ const Contact = () => {
             justifyContent={"space-between"}
           >
             <Typography variant="subtitle2">Media, Links & Docs</Typography>
-            <Button endIcon={<CaretRight />}>102</Button>
+            <Button
+              onClick={() => {
+                console.log("clicked")
+                dispatch(UpdateSidebarType("SHARED"));
+              }}
+              endIcon={<CaretRight />}
+            >
+              102
+            </Button>
           </Stack>
 
           <Stack direction="row" spacing={2} alignItems={"center"}>
@@ -136,7 +144,9 @@ const Contact = () => {
               <Star size={21} />
               <Typography variant="subtitle2">Starred Messages</Typography>
             </Stack>
-            <IconButton>
+            <IconButton onClick={()=>{
+              dispatch(UpdateSidebarType("STARRED"))
+            }} >
               <CaretRight />
             </IconButton>
           </Stack>

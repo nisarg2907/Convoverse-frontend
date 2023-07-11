@@ -4,11 +4,15 @@ import { Stack, Box, useTheme } from "@mui/material";
 import Conversation from "../../components/Conversation";
 import Contact from "../../components/Contact";
 import { useSelector } from "react-redux";
+import SharedMessages from "../../components/SharedMessages";
+import StarredMessages from "../../components/StarredMessages";
 
 const GeneralApp = () => {
   const theme = useTheme();
   const { sidebar } = useSelector((store) => store.app);
   const open = sidebar.open;
+  const type = sidebar.type;
+  console.log(type);
 
   return (
     <>
@@ -26,7 +30,19 @@ const GeneralApp = () => {
         >
           <Conversation />
         </Box>
-        {open &&<Contact />}
+        {open &&
+          (() => {
+            switch (type) {
+              case "CONTACT":
+                return <Contact />;
+              case "STARRED":
+                return <StarredMessages/>; // Add a return statement for "STARRED" case
+              case "SHARED":
+                return <SharedMessages />;
+              default:
+                return null; // Add a default return statement
+            }
+          })()}
       </Stack>
     </>
   );

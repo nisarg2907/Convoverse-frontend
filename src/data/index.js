@@ -199,6 +199,57 @@ const Chat_History = [
   },
 ];
 
+
+const SHARED_LINKS = [
+{type: "Link",
+subtype: "reply",
+message: "Yep, I can also do that",
+incoming: false,
+outgoing: true,
+},
+{type: "Link",
+subtype: "reply",
+message: "Yep, I can also do that",
+incoming: false,
+outgoing: true,
+},{type: "Link",
+subtype: "reply",
+message: "Yep, I can also do that",
+incoming: false,
+outgoing: true,
+},{type: "Link",
+subtype: "reply",
+message: "Yep, I can also do that",
+incoming: false,
+outgoing: true,
+},
+];
+
+const SHARED_DOCS = [
+  {type: "Link",
+  subtype: "doc",
+  message: "Yep, I can also do that",
+  incoming: false,
+  outgoing: true,
+  },
+  {type: "doc",
+  subtype: "reply",
+  message: "Yep, I can also do that",
+  incoming: false,
+  outgoing: true,
+  },{type: "doc",
+  subtype: "reply",
+  message: "Yep, I can also do that",
+  incoming: false,
+  outgoing: true,
+  },{type: "doc",
+  subtype: "reply",
+  message: "Yep, I can also do that",
+  incoming: false,
+  outgoing: true,
+  },
+  
+];
 const Message_options = [
   {
     title: "Reply",
@@ -227,4 +278,6 @@ export {
   ChatList,
   Chat_History,
   Message_options,
+  SHARED_DOCS,
+  SHARED_LINKS
 };
