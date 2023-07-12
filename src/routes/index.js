@@ -21,7 +21,11 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/auth" element={<MainLayout />}>
-        <Route path="login" element={<LoginPage />} />
+      <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="reset-password" element={<ResetPasswordPage />} />
+        <Route path="new-password" element={<NewPasswordPage />} />
+
       </Route>
 
       <Route path="/" element={<DashboardLayout />}>
@@ -41,6 +45,10 @@ const GeneralApp = Loadable(
   lazy(() => import("../pages/dashboard/GeneralApp"))
 );
 
+const ResetPasswordPage = Loadable(lazy(() => import("../pages/auth/ResetPassword")));
+const NewPasswordPage = Loadable(lazy(() => import("../sections/auth/NewPassword")));
+
+const RegisterPage = Loadable(lazy(() => import("../pages/auth/Register")));
 const LoginPage = Loadable(lazy(() => import("../pages/auth/Login")));
 const Settings = Loadable(lazy(() => import("../pages/dashboard/Settings")));
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
