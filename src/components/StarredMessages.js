@@ -59,7 +59,7 @@ import Message from "./Message";
             p={3}
             spacing={3}
           >
-            <Message/>
+            <Message  />
           </Stack>
         </Stack>
       </Box>
@@ -67,4 +67,7 @@ import Message from "./Message";
   };
   
   export default StarredMessages;
+
+
+  
   
