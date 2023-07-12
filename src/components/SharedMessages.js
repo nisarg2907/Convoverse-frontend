@@ -87,12 +87,12 @@ const SharedMessages = () => {
                     
                     case 1:
                         return SHARED_LINKS.map((el)=>{
-                           return  <LinkMsg  {...el}/>
+                           return  <LinkMsg  el={el}/>
                         })
                         
                         case 2:
                             return SHARED_DOCS.map((el)=>{
-                                return <DocMsg {...el}/>
+                                return <DocMsg el={el}/>
                             })
                         default:
                             break;
