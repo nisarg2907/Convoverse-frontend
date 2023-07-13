@@ -98,9 +98,7 @@ const NewPasswordForm = () => {
             ),
           }}
         />
-      </Stack>
-    
-      <Button
+        <Button
         fullWidth
         color="inherit"
         size="large"
@@ -119,6 +117,9 @@ const NewPasswordForm = () => {
       >
         Reset Password
       </Button>
+      </Stack>
+    
+      
     </FormProvider>
   );
 };

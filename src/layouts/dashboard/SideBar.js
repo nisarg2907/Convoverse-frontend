@@ -15,10 +15,13 @@ import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch";
 import { faker } from "@faker-js/faker";
 import Logo from "../../assets/Images/logo.ico";
+import {  useNavigate } from "react-router-dom";
+
 
 const SideBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -113,9 +116,10 @@ const SideBar = () => {
                   </IconButton>
                 </Box>
               ) : (
-                <IconButton
+                <IconButton 
                   onClick={() => {
                     setSelected(3);
+                    navigate("/settings")
                   }}
                   sx={{
                     width: "max-content",

@@ -3,6 +3,7 @@ import { Stack, Box, useTheme, IconButton, Typography, Avatar, Divider } from '@
 import { Bell, CaretLeft, Image, Info, Key, Keyboard, Lock, Note, PencilCircle } from 'phosphor-react';
 import React from 'react'
 import Shortcuts from '../../sections/settings/Shortcuts';
+import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {
     const theme = useTheme();
@@ -12,7 +13,9 @@ const Settings = () => {
     }
     const handleCloseShortcuts =()=>{
         setOpenShortcuts(false);
+
     }
+    const navigate = useNavigate();
     const list = [
         {
             key:0,
@@ -73,7 +76,9 @@ const Settings = () => {
                     <Stack p={4} spacing={5}>
                         {/* header */}
                         <Stack direction={"row"} alignItems={"center"} spacing={3}>
-                              <IconButton>
+                              <IconButton onClick={()=>{
+                                navigate("/app")
+                              }}>
                                 <CaretLeft size={24} color={"#4B4B4B"}/>
                               </IconButton>
                               <Typography variant="h6">

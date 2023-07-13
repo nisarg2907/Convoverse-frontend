@@ -32,7 +32,9 @@ const Router = () => {
         <Route index element={<Navigate to={DEFAULT_PATH} replace />} />
         <Route path="app" element={<GeneralApp />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="group"element={<GroupPage/>} />
         <Route path="404" element={<Page404 />} />
+        
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Route>
 
@@ -47,6 +49,7 @@ const GeneralApp = Loadable(
 
 const ResetPasswordPage = Loadable(lazy(() => import("../pages/auth/ResetPassword")));
 const NewPasswordPage = Loadable(lazy(() => import("../sections/auth/NewPassword")));
+const GroupPage = Loadable(lazy(() => import("../pages/dashboard/Group")));
 
 const RegisterPage = Loadable(lazy(() => import("../pages/auth/Register")));
 const LoginPage = Loadable(lazy(() => import("../pages/auth/Login")));
