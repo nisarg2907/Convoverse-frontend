@@ -1,7 +1,7 @@
 import React from "react";
 
 import {
-  Button,
+  
   Dialog,
   DialogContent,
   DialogTitle,
@@ -35,21 +35,21 @@ const StartCall = ({ open, handleClose }) => {
 
       <DialogContent>
         <Stack spacing={2}>
-        <Stack sx={{ width: "100%" }} >
-          <Search>
-            <SearchIconWrapper>
-              <MagnifyingGlass color="#709CE6" />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-        </Stack>
-        {/* call list */}
-        {MembersList.map((el)=>{
-            return <CallElement {...el}/>
-        })}
+          <Stack sx={{ width: "100%" }}>
+            <Search>
+              <SearchIconWrapper>
+                <MagnifyingGlass color="#709CE6" />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+          </Stack>
+          {/* call list */}
+          {MembersList.map((el) => {
+            return <CallElement {...el} />;
+          })}
         </Stack>
       </DialogContent>
     </Dialog>

@@ -26,6 +26,7 @@ const Router = () => {
         <Route path="reset-password" element={<ResetPasswordPage />} />
         <Route path="new-password" element={<NewPasswordPage />} />
 
+
       </Route>
 
       <Route path="/" element={<DashboardLayout />}>
@@ -34,6 +35,7 @@ const Router = () => {
         <Route path="settings" element={<Settings />} />
         <Route path="group"element={<GroupPage/>} />
         <Route path="call" element={<CallPage/>} />
+        <Route path="profile" element={<ProfilePage/>}/>
         <Route path="404" element={<Page404 />} />
         
         <Route path="*" element={<Navigate to="/404" replace />} />
@@ -52,7 +54,7 @@ const ResetPasswordPage = Loadable(lazy(() => import("../pages/auth/ResetPasswor
 const NewPasswordPage = Loadable(lazy(() => import("../sections/auth/NewPassword")));
 const GroupPage = Loadable(lazy(() => import("../pages/dashboard/Group")));
 const CallPage =  Loadable(lazy(() => import("../pages/dashboard/Call")));
-
+const ProfilePage = Loadable(lazy(()=>import("../pages/dashboard/Profile")));
 const RegisterPage = Loadable(lazy(() => import("../pages/auth/Register")));
 const LoginPage = Loadable(lazy(() => import("../pages/auth/Login")));
 const Settings = Loadable(lazy(() => import("../pages/dashboard/Settings")));
