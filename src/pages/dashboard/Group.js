@@ -98,11 +98,12 @@ const Group = () => {
             </Stack>
           </Stack>
         </Box>
-        {openDialog && <CreateGroup open={openDialog} handleClose={handleCLoseDialog}/>}
 
         {/* right */}
         {/* implement conversation component */}
       </Stack>
+      
+      {openDialog && <CreateGroup open={openDialog} handleClose={handleCLoseDialog}/>}
     </>
   );
 };
