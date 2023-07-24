@@ -187,44 +187,43 @@ const SideBar = () => {
               src={faker.image.avatar()}
             />
             <Menu
-            
-              id="demo-positioned-menu"
-              aria-labelledby="demo-positioned-button"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose
-              }
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              transformOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-            >
-              <Stack spacing={1} px={1}>
-                {Profile_Menu.map((el,idx) => {
-                  return (
-                    <MenuItem onClick={()=>{handleClick();        }
-                    }>
-                      <Stack
-                      onClick={()=>{
-                        navigate(getMenuPath(idx))
-                      }}
-                        sx={{ width: 100 }}
-                        direction="row"
-                        alignItems={"center"}
-                        justifyContent={"space-between"}
-                      >
-                        <span>{el.title}</span>
-                        {el.icon}
-                      </Stack>
-                    </MenuItem>
-                  );
-                })}
-              </Stack>
-            </Menu>
+  id="demo-positioned-menu"
+  aria-labelledby="demo-positioned-button"
+  anchorEl={anchorEl}
+  open={open}
+  onClose={handleClose}
+  anchorOrigin={{
+    vertical: "bottom",
+    horizontal: "right",
+  }}
+  transformOrigin={{
+    vertical: "bottom",
+    horizontal: "left",
+  }}
+>
+  <Stack spacing={1} px={1}>
+    {Profile_Menu.map((el, idx) => (
+      <MenuItem
+        key={idx}
+        onClick={() => {
+          navigate(getMenuPath(idx));
+          handleClose(); // Close the menu after navigating
+        }}
+      >
+        <Stack
+          sx={{ width: 100 }}
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <span>{el.title}</span>
+          {el.icon}
+        </Stack>
+      </MenuItem>
+    ))}
+  </Stack>
+</Menu>
+
           </Stack>
         </Stack>
       </Box>
