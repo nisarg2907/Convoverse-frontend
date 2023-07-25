@@ -15,7 +15,9 @@ import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch";
 import { faker } from "@faker-js/faker";
 import Logo from "../../assets/Images/logo.ico";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { LogoutUser } from "../../redux/slices/auth";
+import { useDispatch } from "react-redux";
 
 const getMenuPath = (i) => {
   switch (i) {
@@ -30,34 +32,32 @@ const getMenuPath = (i) => {
   }
 };
 
-const getPath = (index) =>{
+const getPath = (index) => {
   switch (index) {
     case 0:
-      return "/app"
-      
-      case 1:
-        return "/group";
+      return "/app";
 
-        case 2:
-          return "/call";
+    case 1:
+      return "/group";
 
-          case 3:
-            return "/settings";
-  
+    case 2:
+      return "/call";
+
+    case 3:
+      return "/settings";
+
     default:
       break;
   }
-}
-
+};
 
 const SideBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    
-    
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -151,11 +151,10 @@ const SideBar = () => {
                   </IconButton>
                 </Box>
               ) : (
-                <IconButton 
+                <IconButton
                   onClick={() => {
                     setSelected(3);
                     navigate(getPath(3));
-                    
                   }}
                   sx={{
                     width: "max-content",
@@ -187,43 +186,45 @@ const SideBar = () => {
               src={faker.image.avatar()}
             />
             <Menu
-  id="demo-positioned-menu"
-  aria-labelledby="demo-positioned-button"
-  anchorEl={anchorEl}
-  open={open}
-  onClose={handleClose}
-  anchorOrigin={{
-    vertical: "bottom",
-    horizontal: "right",
-  }}
-  transformOrigin={{
-    vertical: "bottom",
-    horizontal: "left",
-  }}
->
-  <Stack spacing={1} px={1}>
-    {Profile_Menu.map((el, idx) => (
-      <MenuItem
-        key={idx}
-        onClick={() => {
-          navigate(getMenuPath(idx));
-          handleClose(); // Close the menu after navigating
-        }}
-      >
-        <Stack
-          sx={{ width: 100 }}
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          <span>{el.title}</span>
-          {el.icon}
-        </Stack>
-      </MenuItem>
-    ))}
-  </Stack>
-</Menu>
-
+              id="demo-positioned-menu"
+              aria-labelledby="demo-positioned-button"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+            >
+              <Stack spacing={1} px={1}>
+                {Profile_Menu.map((el, idx) => (
+                  <MenuItem
+                    key={idx}
+                    onClick={() => {
+                      if (idx === 2) {
+                        dispatch(LogoutUser()); // Dispatch the action by calling it as a function
+                      }
+                      navigate(getMenuPath(idx));
+                      handleClose(); // Close the menu after navigating
+                    }}
+                  >
+                    <Stack
+                      sx={{ width: 100 }}
+                      direction="row"
+                      alignItems="center"
+                      justifyContent="space-between"
+                    >
+                      <span>{el.title}</span>
+                      {el.icon}
+                    </Stack>
+                  </MenuItem>
+                ))}
+              </Stack>
+            </Menu>
           </Stack>
         </Stack>
       </Box>
