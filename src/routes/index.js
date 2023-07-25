@@ -25,7 +25,7 @@ const Router = () => {
         <Route path="register" element={<RegisterPage />} />
         <Route path="reset-password" element={<ResetPasswordPage />} />
         <Route path="new-password" element={<NewPasswordPage />} />
-
+        <Route path="verify" element={<VerifyPage/>} />
 
       </Route>
 
@@ -59,5 +59,5 @@ const RegisterPage = Loadable(lazy(() => import("../pages/auth/Register")));
 const LoginPage = Loadable(lazy(() => import("../pages/auth/Login")));
 const Settings = Loadable(lazy(() => import("../pages/dashboard/Settings")));
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
-
+const VerifyPage = Loadable(lazy(() => import("../pages/auth/Verify")));
 export default Router;
