@@ -1,11 +1,26 @@
 import { Avatar, Badge, Box, Stack, useTheme,  Typography } from "@mui/material";
 import StyledBadge from "./StyledBadge";
 import { faker } from "@faker-js/faker";
+import { useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { SelectConversation } from "../redux/slices/app";
 
 const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
+  const dispatch = useDispatch();
+  const {room_id} = useSelector((state) => state.app);
+  const selectedChatId = room_id?.toString();
+
+  let isSelected = +selectedChatId === id;
+
+  if (!selectedChatId) {
+    isSelected = false;
+  }
     const theme = useTheme();
   return (
     <Box
+    onClick={() => {
+      dispatch(SelectConversation({room_id: id}));
+    }}
       sx={{
         width: "100%",
         borderRadius: 1,
